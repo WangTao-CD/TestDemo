@@ -27,10 +27,10 @@ jobs:
           if [ $scheme = default ]; then scheme=$(cat default); fi
           if [ "`ls -A | grep -i \\.xcworkspace\$`" ]; then filetype_parameter="workspace" && file_to_build="`ls -A | grep -i \\.xcworkspace\$`"; else filetype_parameter="project" && file_to_build="`ls -A | grep -i \\.xcodeproj\$`"; fi
           file_to_build=`echo $file_to_build | awk '{$1=$1;print}'`
-          xcodebuild clean build -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -configuration Debug -arch x86_64 -sdk iphonesimulator15.2
-          $(SYMROOT) = $()/Build/Products
+          mkdir ./buildsimulator
+          xcodebuild clean build -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -configuration Debug -arch x86_64 -sdk iphonesimulator15.2 SYMROOT="$(pwd)/buildsimulator"
       - name: Upload build artifacts
         uses: actions/upload-artifact@v2
         with:
           name: TestDemo.app
-          path: SYMROOT/Debug-iphonesimulator/TestDemo.app
+          path: $(pwd)/buildsimulator/Debug-iphonesimulator/TestDemo.app
