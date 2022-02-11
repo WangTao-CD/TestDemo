@@ -32,4 +32,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: TestDemo.app
-          path: /usr/bin/touch/TestDemo.app
+          path: /Users/runner/work/TestDemo/TestDemo/usr/bin/touch/TestDemo.app
