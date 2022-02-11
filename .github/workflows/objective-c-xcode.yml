@@ -32,4 +32,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: TestDemo.app
-          path: $()/Build/Products/Debug-iphonesimulator/TestDemo.app
+          path: $(SYMROOT)/Build/Products/Debug-iphonesimulator/TestDemo.app
