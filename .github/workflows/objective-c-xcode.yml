@@ -32,4 +32,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: TestDemo.app
-          path: /Users/runner/Library/Developer/Xcode/DerivedData/TestDemo-fzmciilpoysiewcwymcuxwiapzgj/Build/Products/Debug-iphonesimulator/TestDemo.app
+          path: $()/Build/Products/Debug-iphonesimulator/TestDemo.app
